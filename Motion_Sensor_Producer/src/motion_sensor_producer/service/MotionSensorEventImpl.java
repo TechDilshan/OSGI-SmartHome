@@ -1,20 +1,18 @@
 package motion_sensor_producer.service;
 
 public class MotionSensorEventImpl implements MotionSensorEvent {
-
-    private final boolean motionDetected;
+    private boolean motionDetected;
 
     public MotionSensorEventImpl(boolean motionDetected) {
         this.motionDetected = motionDetected;
     }
 
-    @Override
     public boolean isMotionDetected() {
         return motionDetected;
     }
 
     @Override
     public String toString() {
-        return "MotionSensorEvent [motionDetected=" + motionDetected + "]";
+        return "Motion detected: " + motionDetected;
     }
 }

@@ -1,8 +1,8 @@
 package motion_sensor_producer.producer;
 
 import org.osgi.framework.BundleContext;
-import motion_sensor_producer.service.MotionSensorEventImpl;
 import motion_sensor_producer.service.MotionSensorEvent;
+import motion_sensor_producer.service.MotionSensorEventImpl;
 
 public class Motion_Sensor_Producer {
 
@@ -18,7 +18,8 @@ public class Motion_Sensor_Producer {
             try {
                 while (running) {
                     if (eventPublisher != null && eventPublisher.isContextValid()) {
-                        MotionSensorEvent event = new MotionSensorEventImpl(true);
+                        // Create the MotionSensorEvent instance
+                        MotionSensorEvent event = new MotionSensorEventImpl(true);  // Now it's valid
                         System.out.println("Motion detected!");
                         eventPublisher.publishEvent(event);
                     }
