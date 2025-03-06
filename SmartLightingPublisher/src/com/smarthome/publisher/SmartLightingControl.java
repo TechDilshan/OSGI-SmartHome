@@ -5,4 +5,5 @@ public interface SmartLightingControl {
     void turnOffLight(String room);
     void adjustBrightness(String room, int level);
     void showLightStatus(String room);
+    void displayAllLights();
 }
