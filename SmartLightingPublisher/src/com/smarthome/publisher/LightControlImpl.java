@@ -10,9 +10,9 @@ public class LightControlImpl implements SmartLightingControl {
     private Map<String, Light> lights = new HashMap<>();
 
     public LightControlImpl() {
-        lights.put("Living Room", new Light("Living Room", 100, true));
-        lights.put("Bedroom", new Light("Bedroom", 50, false));
-        lights.put("Kitchen", new Light("Kitchen", 80, true));
+        lights.put("Living Room", new Light("Living Room", 0, false));
+        lights.put("Bedroom", new Light("Bedroom", 0, false));
+        lights.put("Kitchen", new Light("Kitchen", 0, false));
     }
 
     @Override
@@ -49,7 +49,7 @@ public class LightControlImpl implements SmartLightingControl {
     }
 
     @Override
-    public void showLightStatus(String room) {
+    public String showLightStatus(String room) {
         Light light = lights.get(room);
         if (light != null) {
             if (light.isOn()) {
@@ -64,6 +64,7 @@ public class LightControlImpl implements SmartLightingControl {
         } else {
             System.out.println("Room doesn't exist.");
         }
+		return room;
     }
 
     @Override
