@@ -3,7 +3,6 @@ package motion_sensor_producer.activator;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
-
 import motion_sensor_producer.producer.MotionSensorEventPublisher;
 import motion_sensor_producer.producer.Motion_Sensor_Producer;
 import motion_sensor_producer.service.MotionSensorService;
@@ -19,22 +18,23 @@ public class MotionSensorActivator implements BundleActivator {
 
     @Override
     public void start(BundleContext context) throws Exception {
-        // Initialize the Motion Sensor Service Tracker
+        // Initialize service tracker
         serviceTracker = new MotionSensorServiceTracker(context);
-        serviceTracker.openTracker(); // Open the tracker (start tracking)
+        serviceTracker.openTracker();
+        System.out.println("Service tracker started");
 
-        // Initialize the motion sensor producer with BundleContext
-        motionSensorProducer = new Motion_Sensor_Producer(context);  // Pass context here
-        motionSensorProducer.start();  // Start motion detection
+        // Initialize motion sensor producer
+        motionSensorProducer = new Motion_Sensor_Producer(context);
+        motionSensorProducer.start();
+        System.out.println("Motion Sensor Producer started");
 
-        // Initialize the event publisher with BundleContext
-        eventPublisher = new MotionSensorEventPublisher(context);  // Pass context to event publisher
+        // Initialize event publisher
+        eventPublisher = new MotionSensorEventPublisher(context);
 
         // Register the MotionSensorService
         MotionSensorService motionSensorService = new MotionSensorServiceImpl(eventPublisher);
         serviceRegistration = context.registerService(MotionSensorService.class, motionSensorService, null);
-
-        System.out.println("Motion Sensor Producer Started and Service Registered");
+        System.out.println("Motion Sensor Service registered");
     }
 
     @Override
@@ -42,13 +42,19 @@ public class MotionSensorActivator implements BundleActivator {
         // Unregister the service
         if (serviceRegistration != null) {
             serviceRegistration.unregister();
+            System.out.println("Motion Sensor Service unregistered");
         }
+
+        // Stop the motion sensor producer
         if (motionSensorProducer != null) {
-            motionSensorProducer.stop(); // Stop motion detection
+            motionSensorProducer.stop();
+            System.out.println("Motion Sensor Producer stopped");
         }
+
+        // Close the service tracker
         if (serviceTracker != null) {
-            serviceTracker.closeTracker(); // Close the tracker (stop tracking)
+            serviceTracker.closeTracker();
+            System.out.println("Service tracker stopped");
         }
-        System.out.println("Motion Sensor Producer Stopped");
     }
 }

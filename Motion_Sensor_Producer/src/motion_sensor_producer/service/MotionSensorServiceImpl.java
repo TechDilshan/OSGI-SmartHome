@@ -1,42 +1,36 @@
 package motion_sensor_producer.service;
 
-import motion_sensor_producer.producer.MotionSensorDataGenerator;
 import motion_sensor_producer.producer.MotionSensorEventPublisher;
+import motion_sensor_producer.command.MotionSensorCommand;
 
 public class MotionSensorServiceImpl implements MotionSensorService {
-
-    private MotionSensorEventPublisher eventPublisher;
-    private MotionSensorDataGenerator dataGenerator;
+    private final MotionSensorEventPublisher eventPublisher;
 
     public MotionSensorServiceImpl(MotionSensorEventPublisher eventPublisher) {
         this.eventPublisher = eventPublisher;
-        this.dataGenerator = new MotionSensorDataGenerator();
     }
 
     @Override
-    public void startMotionDetection() {
-        System.out.println("Motion detection started...");
-        new Thread(() -> {
-            while (true) {
-                MotionSensorEvent event = dataGenerator.generateRandomMotionData();
-                eventPublisher.publishEvent(event);
-                try {
-                    Thread.sleep(5000); // Simulate sensor data generation every 5 seconds
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+    public void publishMotionSensorEvent(String event) {
+        eventPublisher.publish(event);
     }
 
     @Override
-    public void stopMotionDetection() {
-        System.out.println("Motion detection stopped...");
+    public void startDetection() {
+        System.out.println("Motion detection started.");
     }
 
     @Override
-    public MotionSensorEvent getCurrentSensorData() {
-        // Simulate fetching current sensor data
-        return dataGenerator.generateRandomMotionData();
+    public void processMotionCommand(MotionSensorCommand motionCommand) {
+        String command = motionCommand.getCommand();
+        if ("start motion".equalsIgnoreCase(command)) {
+            System.out.println("Motion detected!");
+            publishMotionSensorEvent("Motion Detected");
+        } else if ("end motion".equalsIgnoreCase(command)) {
+            System.out.println("Motion ended successfully.");
+            publishMotionSensorEvent("Motion Ended");
+        } else {
+            System.out.println("Unknown motion command.");
+        }
     }
 }

@@ -1,7 +1,6 @@
 package smart_light_subscriber.service;
 
-public interface LightControlService {
+public interface SmartLightService {
     void turnOn();
     void turnOff();
-    void adjustBrightness(int level);
 }
