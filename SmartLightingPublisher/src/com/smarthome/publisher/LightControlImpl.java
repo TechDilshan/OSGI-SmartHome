@@ -20,9 +20,9 @@ public class LightControlImpl implements SmartLightingControl {
         Light light = lights.get(room);
         if (light != null && !light.isOn()) {
             light.turnOn();
-            System.out.println("Light in " + room + " turned ON.");
+            System.out.println("\nLight in " + room + " turned ON.");
         } else {
-            System.out.println("Light in " + room + " is already ON or room doesn't exist.");
+            System.out.println("\nLight in " + room + " is already ON or room doesn't exist.");
         }
     }
 
@@ -31,9 +31,9 @@ public class LightControlImpl implements SmartLightingControl {
         Light light = lights.get(room);
         if (light != null && light.isOn()) {
             light.turnOff();
-            System.out.println("Light in " + room + " turned OFF.");
+            System.out.println("\nLight in " + room + " turned OFF.");
         } else {
-            System.out.println("Light in " + room + " is already OFF or room doesn't exist.");
+            System.out.println("\nLight in " + room + " is already OFF or room doesn't exist.");
         }
     }
 
@@ -42,9 +42,9 @@ public class LightControlImpl implements SmartLightingControl {
         Light light = lights.get(room);
         if (light != null) {
             light.setBrightness(level);
-            System.out.println("Brightness in " + room + " set to " + level + "%.");
+            System.out.println("\nBrightness in " + room + " set to " + level + "%.");
         } else {
-            System.out.println("Room doesn't exist.");
+            System.out.println("\nRoom doesn't exist.");
         }
     }
 
@@ -53,16 +53,16 @@ public class LightControlImpl implements SmartLightingControl {
         Light light = lights.get(room);
         if (light != null) {
             if (light.isOn()) {
-                System.out.println("Light in " + room + " is ON with brightness: " + light.getBrightness() + "% (" + light.getBrightnessStars() + ").");
+                System.out.println("\nLight in " + room + " is ON with brightness: " + light.getBrightness() + "% (" + light.getBrightnessStars() + ").");
                 System.out.println("Light On Time: " + light.getLightOnTime());
                 System.out.println("Light Off Time: N/A");
             } else {
-                System.out.println("Light in " + room + " is OFF.");
+                System.out.println("\nLight in " + room + " is OFF.");
                 System.out.println("Light On Time: N/A");
                 System.out.println("Light Off Time: " + light.getLightOffTime());
             }
         } else {
-            System.out.println("Room doesn't exist.");
+            System.out.println("\nRoom doesn't exist.");
         }
 		return room;
     }
@@ -77,11 +77,13 @@ public class LightControlImpl implements SmartLightingControl {
         int colWidth5 = 18; // Light Off Time
 
         // Header format
+        System.out.println("\n\n####################################################################################################################\n");
+        System.out.println("---------------------------------------------------------------------------------------------------");
         String format = "| %-"+colWidth1+"s | %-"+colWidth2+"s | %-"+colWidth3+"s | %-"+colWidth4+"s | %-"+colWidth5+"s |\n";
         
         // Print table header
         System.out.printf(format, "Room Name", "Light Status", "Brightness Level", "Light On Time", "Light Off Time");
-        System.out.println("------------------------------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------------------------");
 
         for (Light light : lights.values()) {
             String lightStatus = light.isOn() ? "ON" : "OFF";
@@ -93,7 +95,7 @@ public class LightControlImpl implements SmartLightingControl {
             System.out.printf(format, light.getRoomName(), lightStatus, brightnessLevel, onTime, offTime);
         }
 
-        System.out.println("------------------------------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------------------------");
     }
 
 
