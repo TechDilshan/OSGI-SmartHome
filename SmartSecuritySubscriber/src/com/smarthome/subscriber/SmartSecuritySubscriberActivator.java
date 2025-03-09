@@ -12,9 +12,9 @@ public class SmartSecuritySubscriberActivator implements BundleActivator {
 
     private DoorSensorControl doorSensorControl;
     private Scanner input;
-    private boolean isCameraOn = false;  // Track the camera status
-    private boolean isAlarmTriggered = false;  // Track if the alarm is triggered
-    private int alarmSensitivity = 5;  // Default alarm sensitivity
+    private boolean isCameraOn = false;  
+    private boolean isAlarmTriggered = false;  
+    private int alarmSensitivity = 5;  
 
     @Override
     public void start(BundleContext context) throws Exception {
