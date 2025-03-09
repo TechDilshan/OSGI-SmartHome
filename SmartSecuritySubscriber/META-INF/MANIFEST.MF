@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SmartSecuritySubscriber
+Bundle-SymbolicName: SmartSecuritySubscriber
+Bundle-Version: 1.0.0.qualifier
+Import-Package: com.smarthome.publisher,
+ org.osgi.framework;version="1.10.0"
+Bundle-Activator: com.smarthome.subscriber.SmartSecuritySubscriberActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: SmartSecuritySubscriber
+Bundle-RequiredExecutionEnvironment: JavaSE-23
+
+

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SmartSecurityPublisher
+Bundle-SymbolicName: SmartSecurityPublisher
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.smarthome.publisher
+Import-Package: org.osgi.framework;version="1.10.0",
+ org.osgi.util.tracker;version="[1.5.0,2.0.0)"
+Bundle-Activator: com.smarthome.publisher.SmartSecurityPublisherActivator
+Automatic-Module-Name: SmartSecurityPublisher
+Bundle-RequiredExecutionEnvironment: JavaSE-23
+Bundle-ActivationPolicy: lazy
