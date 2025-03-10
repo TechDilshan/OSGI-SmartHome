@@ -112,7 +112,8 @@ public class EnergyManagementControlImpl implements EnergyManagementControl {
 	}
 
 	@Override
-	public double calculateMonthlyBill(String applianceId, double ratePerkWh) {
+	public double calculateMonthlyBill(String applianceId) {
+		double ratePerkWh = 7.85;
 		Appliance appliance = appliances.get(applianceId);
 		if(appliance != null) {
 			return appliance.getEnergConsumed() * ratePerkWh * appliance.getWorkingTime() * 30;

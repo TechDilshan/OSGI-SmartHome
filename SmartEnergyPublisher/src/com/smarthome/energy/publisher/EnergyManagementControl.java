@@ -12,7 +12,7 @@ public interface EnergyManagementControl {
 	
 	void displayEnergyConsumptionDetails();
 	
-	double calculateMonthlyBill(String applianceId, double ratePerkWh);
+	double calculateMonthlyBill(String applianceId);
 	
 	void exportEnergyConsumptionDataToFile(String filename);
 	

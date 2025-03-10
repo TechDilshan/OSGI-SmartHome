@@ -110,11 +110,8 @@ public class UserInterface {
 	private void calculateMonthlyBill() {
 		System.out.println("Enter the Appliance ID: ");
 		String applianceId = input.nextLine();
-		System.out.println("Enter the eletricity rate per kWh: ");
-		double rate = input.nextDouble();
-		input.nextLine();
 		
-		double monthlyBill = energyControl.calculateMonthlyBill(applianceId, rate);
+		double monthlyBill = energyControl.calculateMonthlyBill(applianceId);
 		if(monthlyBill != -1) {
 			System.out.println("Monthly Bill for "+applianceId + " :LKR"+ String.format("%.2f", monthlyBill));
 		}
