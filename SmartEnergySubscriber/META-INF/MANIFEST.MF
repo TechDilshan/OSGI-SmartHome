@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SmartEnergySubscriber
+Bundle-SymbolicName: SmartEnergySubscriber
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.smarthome.energy.subscriber.SmartEnergySubscriberActivator
+Import-Package: com.smarthome.energy.publisher,
+ org.osgi.framework;version="1.10.0"
+Automatic-Module-Name: SmartEnergySubscriber
+Bundle-RequiredExecutionEnvironment: JavaSE-23
+Export-Package: com.smarthome.energy.subscriber
