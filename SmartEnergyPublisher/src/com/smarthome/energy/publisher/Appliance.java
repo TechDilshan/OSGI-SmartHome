@@ -10,7 +10,7 @@ public class Appliance {
 	private boolean isOn;
 	private LocalDateTime startTime;
 	private LocalDateTime endTime;
-	private double energConsumed;
+	private double energyConsumed;
 	private double workingTime;
 	
 	private DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -19,7 +19,7 @@ public class Appliance {
 		this.applianceId = applianceId;
 		this.energyLimit = energyLimit; 
 		this.isOn = false;
-		this.energConsumed = 0.0;
+		this.energyConsumed = 0.0;
 		this.workingTime = 0.0;
 	}
 	
@@ -45,11 +45,11 @@ public class Appliance {
 	}
 	
 	public double getEnergConsumed() {
-		return energConsumed;
+		return energyConsumed;
 	}
 	
-	public void setEnergyConsumed(double energConsumed) {
-		this.energConsumed = energConsumed;
+	public void setEnergyConsumed(double energyConsumed) {
+		this.energyConsumed = energyConsumed;
 	}
 	
 	public String getStartTime() {
@@ -82,21 +82,5 @@ public class Appliance {
 			System.out.println("Appliance "+ applianceId + " is already Off ");
 		}
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

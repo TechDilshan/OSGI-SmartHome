@@ -15,7 +15,7 @@ public class EnergyManagementControlImpl implements EnergyManagementControl {
         appliances.put("AC-1", new Appliance("AC-1", 0.08));  // Air Conditioner
         appliances.put("kettle", new Appliance("kettle", 1.2)); // Kettle
         appliances.put("blender", new Appliance("blender", 0.4));  // Blender
-        appliances.put("fridge", new Appliance("fridge", 0.4));  // Fridge
+        appliances.put("fridge", new Appliance("fridge", 0.4));  // fridge
         
     }
 	
@@ -87,10 +87,10 @@ public class EnergyManagementControlImpl implements EnergyManagementControl {
 	@Override
 	public void displayEnergyConsumptionDetails() {
 		System.out.println("\n\n###################################################################################################################################################\n");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("| %-10s | %-20s | %-20s | %-15s | %-15s | %-15s | %-15s |\n",
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("| %-20s | %-20s | %-20s | %-15s | %-15s | %-15s | %-18s |\n",
         		"Appliance", "Turned ON", "Turned OFF", "Working Time(h)", "Energy(kWh)", "Energy Limit(kWh)", "Monthly Bill(LKR)" );
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------");
         
         double ratePerkWh = 7.85;
         for(Appliance appliance : appliances.values()) {
@@ -100,7 +100,7 @@ public class EnergyManagementControlImpl implements EnergyManagementControl {
         	double energyConsumed = appliance.getEnergConsumed();
         	double energyLimit = appliance.getEnergyLimit();
         	double monthlyBill = energyConsumed * ratePerkWh * workingTime * 30;
-        	System.out.printf("| %-10s | %-20s | %-20s | %-15.2f | %-15.2f | %-15.2f | %-15.2f |\n",
+        	System.out.printf("| %-20s | %-20s | %-20s | %-15.2f | %-15.2f | %-17s | %-18s |\n",
         			appliance.getApplianceId(), turnOn, turnOff, workingTime, energyConsumed, energyLimit, monthlyBill);
         	
         	System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------");
