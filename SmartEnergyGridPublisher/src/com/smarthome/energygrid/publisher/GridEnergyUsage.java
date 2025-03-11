@@ -12,7 +12,7 @@ public class GridEnergyUsage {
     
     public void importFromGrid(double energy) {
         if (energy < 0) {
-            System.out.println("Error: Energy value cannot be negative.");
+            System.out.println("Error: Energy value cannot be  negative.");
             return;
         }
         importGridEnergy += energy;

@@ -5,24 +5,27 @@ public class EnergyGridManagementControlImpl implements EnergyGridManagementCont
 	private SolarEnergyProducer solarProducer;
     private BatteryStorage batteryStorage;
     private GridEnergyUsage gridEnergy;
+    
+    public EnergyGridManagementControlImpl() {
+    	this.solarProducer = new SolarEnergyProducer();
+	    this.batteryStorage = new BatteryStorage(10.0); // 10 kWh battery
+	    this.gridEnergy = new GridEnergyUsage();
+    }
 
 	@Override
 	public void generateSolarEnergy() {
-		 this.solarProducer = new SolarEnergyProducer();
-	     this.batteryStorage = new BatteryStorage(5.0); // 5 kWh battery
-	     this.gridEnergy = new GridEnergyUsage();
-		
+		solarProducer.generateEnergy();
 	}
 
 	@Override
 	public void chargeBatteryPower(double energy) {
-		solarProducer.generateEnergy();
+		batteryStorage.chargeBattery(energy);
 		
 	}
 
 	@Override
 	public void useBatteryPower(double energy) {
-		batteryStorage.chargeBattery(energy);
+		batteryStorage.useBattery(energy);
 		
 	}
 

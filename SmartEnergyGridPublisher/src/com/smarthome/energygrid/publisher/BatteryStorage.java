@@ -11,8 +11,8 @@ public class BatteryStorage {
     }
     
     public void chargeBattery(double energy) {
-        if (energy < 0) {
-            System.out.println("Error: Energy value cannot be negative.");
+        if (energy <= 0) {
+            System.out.println("Error: Energy value cannot be 0 or negative.");
             return;
         }
         if (currentCharge + energy > batteryCapacity) {
@@ -25,8 +25,8 @@ public class BatteryStorage {
     }
     
     public void useBattery(double energy) {
-        if (energy < 0) {
-            System.out.println("Error: Energy value cannot be negative.");
+        if (energy <= 0) {
+            System.out.println("Error: Energy value cannot be 0 or negative.");
             return;
         }
         if (energy > currentCharge) {

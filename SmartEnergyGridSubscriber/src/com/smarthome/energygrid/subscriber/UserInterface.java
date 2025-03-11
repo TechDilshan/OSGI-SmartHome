@@ -61,7 +61,6 @@ public class UserInterface {
     
     private void generateSolarEnergy() {
         energyControl.generateSolarEnergy();
-        System.out.println("Solar Energy Generated Started");
     }
 
     private void chargeBattery() {
