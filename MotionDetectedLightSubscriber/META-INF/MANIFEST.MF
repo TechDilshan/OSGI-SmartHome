@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MotionDetectedLightSubscriber
+Bundle-SymbolicName: MotionDetectedLightSubscriber
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.motion.subscriber.MotionDetectedLightSubscriberActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.motion.publisher,
+ com.smarthome.publisher,
+ org.osgi.framework;version="1.3.0"
+Require-Bundle: MotionDetectedLightPublisher;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Export-Package: com.motion.subscriber
