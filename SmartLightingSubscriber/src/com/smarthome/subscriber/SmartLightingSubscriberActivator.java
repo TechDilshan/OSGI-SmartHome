@@ -10,6 +10,7 @@ public class SmartLightingSubscriberActivator implements BundleActivator {
 
     private SmartLightingControl smartLightingControl;
     private Scanner input = new Scanner(System.in);
+    private UserInterface ui;
 
     @Override
     public void start(BundleContext context) throws Exception {
@@ -19,6 +20,8 @@ public class SmartLightingSubscriberActivator implements BundleActivator {
         ServiceReference<?> serviceReference = context.getServiceReference(SmartLightingControl.class.getName());
         smartLightingControl = (SmartLightingControl) context.getService(serviceReference);
 
+        ui = new UserInterface(smartLightingControl);
+
         // Display menu
         displayMenu();
     }
@@ -27,19 +30,11 @@ public class SmartLightingSubscriberActivator implements BundleActivator {
         boolean running = true;
 
         while (running) {
-        	System.out.println("\n\n________________________________________________________________________________________________________________________");
-            System.out.println("\nWelcome to the Smart Lighting Control System!\n");
-            System.out.println("1. Turn On Light");
-            System.out.println("2. Turn Off Light");
-            System.out.println("3. Adjust Brightness");
-            System.out.println("4. Show Light Status");
-            System.out.println("5. Display All Lights");
-            System.out.println("6. Exit");
+            ui.showMenu();
             System.out.print("\nChoose an option: ");
-
             int choice = input.nextInt();
             input.nextLine(); // Consume newline
-           
+
             switch (choice) {
                 case 1:
                     turnOnLight();
@@ -57,6 +52,12 @@ public class SmartLightingSubscriberActivator implements BundleActivator {
                     displayAllLights();
                     break;
                 case 6:
+                    addRoom();
+                    break;
+                case 7:
+                    removeRoom();
+                    break;
+                case 8:
                     running = false;
                     System.out.println("Exiting Smart Lighting Control System...");
                     break;
@@ -69,15 +70,13 @@ public class SmartLightingSubscriberActivator implements BundleActivator {
     private void turnOnLight() {
         System.out.print("Enter the room name to turn on the light: ");
         String room = input.nextLine();
-        smartLightingControl.turnOnLight(room);
-        System.out.println("Light turned ON in " + room);
+        ui.turnOnLight(room);
     }
 
     private void turnOffLight() {
         System.out.print("Enter the room name to turn off the light: ");
         String room = input.nextLine();
-        smartLightingControl.turnOffLight(room);
-        System.out.println("Light turned OFF in " + room);
+        ui.turnOffLight(room);
     }
 
     private void adjustBrightness() {
@@ -92,19 +91,25 @@ public class SmartLightingSubscriberActivator implements BundleActivator {
             return;
         }
 
-        smartLightingControl.adjustBrightness(room, level);
-        System.out.println("Brightness in " + room + " set to " + level + "%");
+        ui.adjustBrightness(room, level);
     }
 
     private void showLightStatus() {
         System.out.print("Enter the room name to show the light status: ");
         String room = input.nextLine();
-        String status = smartLightingControl.showLightStatus(room);
-        System.out.println("\nLight status in " + room + ": " + status);
+        ui.showLightStatus(room);
     }
 
     private void displayAllLights() {
-        smartLightingControl.displayAllLights();
+        ui.displayAllLights();
+    }
+
+    private void addRoom() {
+        ui.addRoom();
+    }
+
+    private void removeRoom() {
+        ui.removeRoom();
     }
 
     @Override

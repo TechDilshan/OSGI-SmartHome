@@ -97,6 +97,25 @@ public class LightControlImpl implements SmartLightingControl {
 
         System.out.println("---------------------------------------------------------------------------------------------------");
     }
+    
+    public void addRoom(String roomName) {
+        if (!lights.containsKey(roomName)) {
+            lights.put(roomName, new Light(roomName, 0, false));
+            System.out.println("\nRoom " + roomName + " added successfully.");
+        } else {
+            System.out.println("\nRoom " + roomName + " already exists.");
+        }
+    }
+
+    // New Method to Remove Room
+    public void removeRoom(String roomName) {
+        if (lights.containsKey(roomName)) {
+            lights.remove(roomName);
+            System.out.println("\nRoom " + roomName + " removed successfully.");
+        } else {
+            System.out.println("\nRoom " + roomName + " does not exist.");
+        }
+    }
 
 
 
