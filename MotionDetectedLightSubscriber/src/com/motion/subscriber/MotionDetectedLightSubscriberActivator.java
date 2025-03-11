@@ -56,7 +56,7 @@ public class MotionDetectedLightSubscriberActivator implements BundleActivator {
                     adjustBrightness();
                     break;
                 case 5:
-                    displayAllLights();  // Added option for displaying all lights
+                    displayAllLights(); 
                     break;
                 case 6:
                     showLightStatus();

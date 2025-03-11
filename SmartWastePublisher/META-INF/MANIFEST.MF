@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SmartWastePublisher
+Bundle-SymbolicName: SmartWastePublisher
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.smarthomewaste.publisher
+Bundle-Activator: com.smarthomewaste.publisher.SmartWastePublisherActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-23
+Automatic-Module-Name: SmartWastePublisher
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy

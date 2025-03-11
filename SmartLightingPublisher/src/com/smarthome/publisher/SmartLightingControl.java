@@ -6,8 +6,6 @@ public interface SmartLightingControl {
     void adjustBrightness(String room, int level);
     String showLightStatus(String room);
     void displayAllLights();
-    
-    // New Methods for Adding and Removing Rooms
     void addRoom(String room);
     void removeRoom(String room);
 }
