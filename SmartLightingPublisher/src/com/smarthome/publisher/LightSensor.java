@@ -4,7 +4,7 @@ public class LightSensor {
     private boolean isLightOn;
 
     public LightSensor() {
-        this.isLightOn = false;  // Initially light is off
+        this.isLightOn = false;
     }
 
     public void turnOn() {
