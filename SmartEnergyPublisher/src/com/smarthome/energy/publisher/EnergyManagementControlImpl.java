@@ -10,14 +10,57 @@ public class EnergyManagementControlImpl implements EnergyManagementControl {
 	private Map<String, Appliance> appliances = new HashMap<>();
 	
 	public EnergyManagementControlImpl() {
-        appliances.put("lightBulb-1", new Appliance("lightBulb-1", 0.1)); // 100W bulb
-        appliances.put("lightbulb-2", new Appliance("lightbulb-2", 0.06));  // 60W bulb
         appliances.put("AC-1", new Appliance("AC-1", 0.08));  // Air Conditioner
         appliances.put("kettle", new Appliance("kettle", 1.2)); // Kettle
         appliances.put("blender", new Appliance("blender", 0.4));  // Blender
         appliances.put("fridge", new Appliance("fridge", 0.4));  // fridge
         
     }
+	
+	@Override
+	public void addAppliance(String applianceId, double energyLimit) {
+		if (appliances.containsKey(applianceId)) {
+			System.out.println("Appliance " + applianceId + " already exists.");
+		} else {
+			appliances.put(applianceId, new Appliance(applianceId, energyLimit));
+			System.out.println("Appliance " + applianceId + " added successfully.");
+		}
+	}
+	
+	@Override
+	public void removeAppliance(String applianceId) {
+	    if (appliances.containsKey(applianceId)) {
+	        appliances.remove(applianceId);
+	        System.out.println("Appliance " + applianceId + " removed successfully.");
+	    } else {
+	        System.out.println("Appliance " + applianceId + " does not exist.");
+	    }
+	}
+	
+	@Override
+	public void updateApplianceEnergyLimit(String applianceId, double energyLimit) {
+	    Appliance appliance = appliances.get(applianceId);
+	    if (appliance != null) {
+	        appliance.setEnergyConsumed(energyLimit);
+	        System.out.println("Updated energy limit for " + applianceId + " to " + energyLimit + " kWh.");
+	    } else {
+	        System.out.println("Appliance " + applianceId + " does not exist.");
+	    }
+	}
+	
+
+	@Override
+	public void listAppliances() {
+	    System.out.println("\nList of Appliances:");
+	    if (appliances.isEmpty()) {
+	        System.out.println("No appliances available.");
+	    } else {
+	        for (String id : appliances.keySet()) {
+	            System.out.println("- " + id);
+	        }
+	    }
+	}
+
 	
 
 	@Override

@@ -2,6 +2,14 @@ package com.smarthome.energy.publisher;
 
 public interface EnergyManagementControl {
 	
+    void addAppliance(String applianceId, double energyLimit);
+    
+    void removeAppliance(String applianceId);
+	
+	void updateApplianceEnergyLimit(String applianceId, double newEnergyLimit);
+	
+	void listAppliances();
+	
 	void turnOnAppliance(String applianceId);
 	
 	void turnOffAppliance(String applianceId);

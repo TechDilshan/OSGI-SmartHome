@@ -28,7 +28,11 @@ public class UserInterface {
 			System.out.println("5. Display Energy Consumption Details");
 			System.out.println("6. Calculate Monthly Bill");
 			System.out.println("7. Export Energy Consumption Data to File");
-	        System.out.println("8. Exit");
+			System.out.println("8. Add Appliance");
+			System.out.println("9. Remove Appliance");
+			System.out.println("10. Update Appliance Energy Limit");
+			System.out.println("11. List  Appliances");
+	        System.out.println("12. Exit");
 			System.out.println("\n Choose an option: ");
 			
 			int choice = input.nextInt();
@@ -57,6 +61,18 @@ public class UserInterface {
 				exportEnergyConsumptionData();
 				break;
 			  case 8:
+				addAppliance();
+				break;
+			  case 9:
+				removeAppliance();
+				break;
+			  case 10:
+				updateApplianceEnergyLimit();
+				break;
+			  case 11:
+				listAppliances();
+				break;
+			  case 12:
 				 running = false;
 				 System.out.println("Exit Energy Management System.....");
 				 break;
@@ -132,6 +148,34 @@ public class UserInterface {
 	        System.out.println("Error exporting data to file: " + e.getMessage());
 	        System.out.println("Please check the file path and permissions.");
 	    }
+	}
+	
+	private void addAppliance() {
+		System.out.print("Enter the appliance ID: ");
+		String applianceId = input.nextLine();
+		System.out.print("Enter the energy limit (in kWh): ");
+		double energyLimit = input.nextDouble();
+		input.nextLine();
+		energyControl.addAppliance(applianceId, energyLimit);
+	}
+	
+	private void removeAppliance() {
+	    System.out.print("Enter appliance ID: ");
+	    String applianceId = input.nextLine();
+	    energyControl.removeAppliance(applianceId);
+	}
+	
+	private void updateApplianceEnergyLimit() {
+	    System.out.print("Enter appliance ID: ");
+	    String applianceId = input.nextLine();
+	    System.out.print("Enter new energy limit (kWh): ");
+	    double energyLimit = input.nextDouble();
+	    input.nextLine();
+	    energyControl.updateApplianceEnergyLimit(applianceId, energyLimit);
+	}
+
+	private void listAppliances() {
+	    energyControl.listAppliances();
 	}
 }
 

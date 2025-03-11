@@ -31,6 +31,10 @@ public class Appliance {
 		return energyLimit;
 	}
 	
+	public void setEnergyLimit(double energyLimit) {
+		this.energyLimit = energyLimit;
+	}
+	
 	public boolean isOn() {
 		return isOn;
 	}
