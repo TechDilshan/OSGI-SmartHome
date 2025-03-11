@@ -9,3 +9,8 @@ Automatic-Module-Name: SmartWasteSubscriber
 Import-Package: com.smarthomewaste.publisher,
  org.osgi.framework;version="1.3.0"
 Bundle-ActivationPolicy: lazy
+
+
+
+
+

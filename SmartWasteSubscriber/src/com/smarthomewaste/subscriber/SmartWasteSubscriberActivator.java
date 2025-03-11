@@ -16,6 +16,7 @@ public class SmartWasteSubscriberActivator implements BundleActivator {
 
         // Get reference to the SmartBinControl service
         serviceReference = context.getServiceReference(SmartBinControl.class);
+
         if (serviceReference != null) {
             binControl = context.getService(serviceReference);
             if (binControl != null) {
@@ -26,7 +27,7 @@ public class SmartWasteSubscriberActivator implements BundleActivator {
                 UserInterface ui = new UserInterface(binControl);
                 ui.showMenu();  // Show the interactive menu to the user
             } else {
-                System.out.println("Failed to acquire Smart Bin Control service.");
+                System.out.println("Failed to acquire Smart Bin Control service. binControl is null.");
             }
         } else {
             System.out.println("Smart Bin Control service reference not found.");

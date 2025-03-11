@@ -10,3 +10,9 @@ Bundle-Activator: com.smarthome.publisher.SmartSecurityPublisherActivator
 Automatic-Module-Name: SmartSecurityPublisher
 Bundle-RequiredExecutionEnvironment: JavaSE-23
 Bundle-ActivationPolicy: lazy
+
+
+
+
+
+
