@@ -1,5 +1,7 @@
 package com.smartthermostat.publisher;
 
+import java.util.List;
+
 public interface ThermostatControl {
 	void turnOnThermostat(String room);
     void turnOffThermostat(String room);
@@ -8,4 +10,5 @@ public interface ThermostatControl {
     void addRoom(String room);
     void deleteRoom(String room);
     String getThermostatStatus(String room);
+    List<String> getAllRooms();
 }

@@ -1,6 +1,8 @@
 package com.smartthermostat.publisher;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ThermostatControlImpl implements ThermostatControl{
@@ -92,4 +94,10 @@ public class ThermostatControlImpl implements ThermostatControl{
 	        System.out.println("Room '" + room + "' does not exist.");
 	    }		
 	}
+	
+	@Override
+	public List<String> getAllRooms() {
+	    return new ArrayList<>(thermostats.keySet());
+	}
+
 }
