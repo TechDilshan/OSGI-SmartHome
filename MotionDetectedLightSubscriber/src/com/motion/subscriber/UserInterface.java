@@ -46,7 +46,7 @@ public class UserInterface {
 
     public void turnOnLight(String room) {
         motionDetectedLightControl.turnOnLight(room);
-        updateLightStatus(room, "ON", 100, "12:00 PM");  // Example timestamp when light is turned on
+        updateLightStatus(room, "ON", 100, "12:00 PM"); 
     }
 
     public void adjustBrightness(String room, int level) {

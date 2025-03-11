@@ -17,7 +17,7 @@ public class UserInterface {
     public void start() {
         boolean running = true;
         while (running) {
-            System.out.println("\nSmart Home Energy System");
+            System.out.println("\nSmart Home Energy Grid System");
             System.out.println("1. Generate Solar Energy");
             System.out.println("2. Charge Battery");
             System.out.println("3. Use Battery");
